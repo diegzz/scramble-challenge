@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Scramble Challenge</title>
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div id="app">
+      <section class="section">
+        <div class="container is-fluid">
+          <div class="content">
+            <div class="columns">
+              <div class="column">
+                <h3>Scramble</h3>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column">
+                <form method="POST" action="/">
+                  <p>
+                    String 1:
+                    <input class="input" type="text" name="str1" value="{{str1}}" placeholder="example: rekqodlw"/>
+                  </p>
+                  {% if errors.str1 %}
+                  <div class="notification is-danger">{{errors.str1|join}}</div>
+                  {% endif %}
+
+                  <p>
+                    String 2:
+                    <input class="input" type="text" name="str2" value="{{str2}}" placeholder="example: world"/>
+                  </p>
+                  {% if errors.str2 %}
+                  <div class="notification is-danger">{{errors.str2|join}}</div>
+                  {% endif %}
+                  <input type="submit" class="button is-primary" value="comment" />
+                </form>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column">
+                <p>Result: {{scramble}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- scripts and styles -->
+    {% style "/assets/bulma/css/bulma.min.css" %}
+    {% style "/assets/material-icons/css/material-icons.min.css" %}
+    {% style "/css/screen.css" %}
+
+    <script type="text/javascript">
+        var csrfToken = "{{csrf-token}}";
+    </script>
+    {% script "/js/app.js" %}
+  </body>
+</html>
