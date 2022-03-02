@@ -14,7 +14,7 @@ To start a web server for the application, run:
 
     lein run 
 
-## Scrable 
+## Scramble 
 ```
 (defn scramble [str1 str2]
   (set/subset? (set str2) (set str1)))
